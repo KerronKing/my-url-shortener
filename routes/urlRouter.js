@@ -88,4 +88,24 @@ router.get('/:shortcode', async (req, res) => {
   }
 })
 
+router.get('/:shortcode/stats', async (req, res) => {
+  const code = req.params.shortcode;
+
+  const url = await Url.findOne({ shortenedUrl: code });
+
+  try {
+    if (!url) {
+      res.status(400).send('No such code exists in the database.');
+    } else {
+      const desiredStats = {
+        lastAccessed: url.lastAccessed,
+        urlClickCount: url.urlClickCount
+      }
+      res.send(desiredStats);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+})
+
 module.exports = router;
