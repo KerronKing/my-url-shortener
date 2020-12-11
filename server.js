@@ -24,3 +24,5 @@ app.use('/urls', urlsRouter);
 app.listen(process.env.PORT || 5000, () => {
   console.log('The server is up and running');
 });
+
+module.exports = { app }
