@@ -1,4 +1,3 @@
 {
-  "mongoURI": "mongodb+srv://KerronKing:KerronKing123@cluster0.chxam.mongodb.net/my-url-shortener?retryWrites=true&w=majority",
-  "devURL": "http://localhost:5000/"
+  "mongoURI": "mongodb+srv://KerronKing:KerronKing123@cluster0.chxam.mongodb.net/my-url-shortener?retryWrites=true&w=majority"
 }
