@@ -77,8 +77,14 @@ router.get('/:shortcode', async (req, res) => {
     } else {
       let urlClickCount = url.urlClickCount;
       let lastAccessed = url.lastAccessed;
+
+      let today = new Date();
+      let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      let dateTime = date + ' ' + time;
+
       urlClickCount += 1;
-      lastAccessed = Date.now();
+      lastAccessed = dateTime;
   
       await url.updateOne({ urlClickCount, lastAccessed });
       res.redirect(url.originalUrl);
